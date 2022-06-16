@@ -25,6 +25,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"runtime"
 	"strings"
 
 	"go.uber.org/multierr"
@@ -114,6 +115,11 @@ func (t *spectrumTask) Do(ctx context.Context) v1.BuildStatus {
 		newStdW = os.Stdout
 	}
 
+	Jobs := jobs
+	if jobs := runtime.GOMAXPROCS(0); jobs > 1 {
+		jobs = Jobs
+	}
+
 	options := spectrum.Options{
 		PullInsecure:  pullInsecure,
 		PushInsecure:  t.task.Registry.Insecure,
@@ -124,6 +130,7 @@ func (t *spectrumTask) Do(ctx context.Context) v1.BuildStatus {
 		Stdout:        newStdW,
 		Stderr:        newStdW,
 		Recursive:     true,
+		jobs:          Jobs,
 	}
 
 	go readSpectrumLogs(newStdR)
