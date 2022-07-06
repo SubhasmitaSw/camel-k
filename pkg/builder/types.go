@@ -91,4 +91,5 @@ type builderContext struct {
 		TrustStoreName   string
 		TrustStorePass   string
 	}
+	Strategy       		 v1.BuildStrategy
 }
