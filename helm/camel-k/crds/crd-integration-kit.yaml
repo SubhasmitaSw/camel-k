@@ -21,9 +21,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.1
   creationTimestamp: null
-  labels:
-    app: camel-k
-  name: integrationkits.camel.apache.org
+    labels:n    app: camel-k  name: integrationkits.camel.apache.org
 spec:
   group: camel.apache.org
   names:

@@ -21,9 +21,7 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.6.1
   creationTimestamp: null
-  labels:
-    app: camel-k
-  name: builds.camel.apache.org
+    labels:n    app: camel-k  name: builds.camel.apache.org
 spec:
   group: camel.apache.org
   names:
@@ -84,6 +82,7 @@ spec:
                 enum:
                 - routine
                 - pod
+                - mvnd
                 type: string
               tasks:
                 description: The sequence of Build tasks to be performed as part of
