@@ -33,7 +33,7 @@ RUN mkdir -p ${MAVEN_HOME} \
 RUN microdnf update && microdnf install procps
 
 RUN temp=$(mktemp -d) \
- && curl -Lso "$temp"/mvnd.zip https://github.com/mvndaemon/mvnd/releases/download/0.7.1/mvnd-0.7.1-linux-amd64.zip \
+ && curl -Lso "$temp"/mvnd.zip https://github.com/mvndaemon/mvnd/releases/download/0.8.0/mvnd-0.8.0-linux-amd64.zip \
  && unzip -d "$temp" "$temp"/mvnd.zip \
  && rm -v "$temp"/mvnd.zip \
  && mkdir -p "$MAVEN_HOME" \

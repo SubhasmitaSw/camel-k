@@ -49,7 +49,7 @@ func (c *Command) Do(ctx context.Context) error {
 		return err
 	}
 
-	mvnCmd := ""
+	mvnCmd := " "
 	switch c.context.Strategy {
 	default:
 		mvnCmd = "mvn"
