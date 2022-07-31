@@ -67,6 +67,14 @@ func TestKitTimerToLogFullNativeBuild(t *testing.T) {
 	})
 }
 
+func TestKitMavenDaemonFullBuild(t *testing.T) {
+	doKitFullBuild(t, "maven-daemon", "300Mi", "5m0s", TestTimeoutLong, kitOptions{
+		dependencies: []string{
+			"camel:maven-daemon",
+		},
+	})
+}
+
 func doKitFullBuild(t *testing.T, name string, memoryLimit string, buildTimeout string, testTimeout time.Duration, options kitOptions) {
 	t.Helper()
 
